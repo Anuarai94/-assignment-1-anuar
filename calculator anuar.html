@@ -1,0 +1,112 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>calculator</title>
+
+    <link href="my%20calculator.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: #e6d2fa;">
+<div class="containers">
+    <div class="content">
+        <div class="title"><h1>MY CALCULATOR</h1></div>
+        <div class="answer" dir="rtl">
+            <input id="answerDisplay" type="text" value="0" readonly>
+        </div>
+
+
+        <div class="input-containers">
+            <div class="row">
+                <div class="button-container">
+                    <button>7</button></div>
+                <div class="button-container">
+                <button>8</button></div>
+                <div class="button-container">
+                <button>9</button></div>
+                <div class="button-container">
+                <button>/</button></div>
+            </div>
+            <div class="row">
+                <div class="button-container">
+                <button>4</button></div>
+                <div class="button-container">
+                <button>5</button></div>
+                <div class="button-container">
+                <button>6</button></div>
+                <div class="button-container">
+                <button>x</button></div>
+            </div>
+            <div class="row">
+                <div class="button-container">
+                <button>1</button></div>
+                <div class="button-container">
+                <button>2</button></div>
+                <div class="button-container">
+                <button>3</button></div>
+                <div class="button-container">
+                <button>-</button></div>
+            </div>
+            <div class="row">
+                <div class="button-container">
+                <button>0</button></div>
+                <div class="button-container">
+                <button>.</button></div>
+                <div class="button-container">
+                <button>=</button></div>
+                <div class="button-container">
+                <button>+</button></div>
+            </div>
+            <div class="row">
+                <div class="button-container">
+                    <button>AC</button></div>
+
+            </div>
+         </div>
+
+
+
+    </div>
+</div>
+<script src="script.js "></script>
+<script>
+    const OPERATION= {
+        CLEAR:'AC',
+        ADD:'+',
+        MINUS:'-',
+        EQUAL:'=',
+        SUB: '/',
+        MULTIPLY:'x',
+
+    }
+    const fromStringToOperation = (strValue) => {
+        const entry = Object.entries(OPERATION).find(([, value]) => strValue === value);
+        if (entry) return entry[0];
+
+        throw new Error(`Invalid value ${strValue}`);
+
+    }
+
+    (function(){
+const calculator = new Calculator();
+        const display = document.getElementById("answerDisplay");
+        display.value = calculator.display();
+
+        const button = document.querySelectorAll('.button-container>button');
+    button.forEach((button) => {
+        button.addEventListener('click', function (event) {
+            console.log('before input',calculator);
+            const input = event.target.innerHTML.trim()
+            if ("123456789.0".includes(input)){
+                calculator.setNumberInput(input)
+            }else {
+                calculator.setOperationInput(fromStringToOperation(input))
+            }
+            display.value=calculator.display();
+            console.log('after input',calculator);
+
+
+        })
+
+    })
+    })()
+</script>
+</body>
+</html>

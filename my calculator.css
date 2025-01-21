@@ -1,0 +1,77 @@
+/*TITLE STYLING*/
+
+.title > h1 {
+    font-size:2em;
+    font-weight: bold;
+    text-align:center;
+    padding: 1em 1em 0;
+}
+
+
+.containers {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+}
+
+.input-containers {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 2px;
+
+}
+
+.input-containers > .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 2px;
+   }
+
+/*ANSWER DISPLAY STYLING*/
+.answer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+}
+#answerDisplay {
+    padding: 2em;
+    width: 100%;
+    font-size:1.2em;
+}
+
+/* BUTTON STYLING*/
+.button-container {
+    display: flex;
+    flex : 1 1 0;
+
+}
+
+.button-container > button {
+    padding: 3em;
+    width: 100%;
+    border: none;
+}
+
+.button-container > button:hover {
+    background-color: olivedrab;
+}
+
+.button-container > button:active {
+    background-color: palevioletred;
+    color: #ffffff;
+
+}
+
+
